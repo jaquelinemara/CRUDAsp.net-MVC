@@ -1,0 +1,69 @@
+﻿@model List<Pedido>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Meta tags -->
+    <meta name="viewport" content="width=device-width" , initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+    <title>Index</title>
+
+</head>
+<body>
+    <div class="text-center">
+        <h1>Gerenciamento de Pedidos</h1><br />
+    </div>
+
+    <div class="text-center">
+        <a asp-action="Cadastrar" class="btn btn-outline-success"><i class="far fa-plus-square">Adicionar Pedido</i></a><br /><br />
+    </div>
+
+
+    <table class="table table-bordered">
+
+        <tr>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Valor (R$)</th>
+            <th>Data</th>
+            <th>Fornecedor</th>
+            <th>Ação</th>
+        </tr>
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Produto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Valor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fornecedor)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Editar", new { PedidoId = item.PedidoId }) |
+                    @Html.ActionLink("Deletar", "Deletar", new { PedidoId = item.PedidoId }) 
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <br /><p><b>Dados atualizados: </b>@DateTime.Now</p>
+
+</body>
+
+</html>
