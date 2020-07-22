@@ -1,2 +1,3 @@
 # CRUDAsp.net-MVC
- CRUD Asp.net Core MVC com Entity Framework para acesso ao banco de dados SQL Server
+
+CRUD Asp.net Core MVC with Entity Framework for accessing the SQL Server database
